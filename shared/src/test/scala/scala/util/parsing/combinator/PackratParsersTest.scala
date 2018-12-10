@@ -108,11 +108,11 @@ class PackratParsersTest {
       assertEquals(expected, result)
     }
 
-    assertSuccess(List('a, 'b), List('a), List('b, 'c), "a b c")
-    assertSuccess(List('a, 'a, 'b, 'b), List('a, 'a), List('b, 'b, 'c, 'c), "a a b b c c")
-    assertSuccess(List('a, 'a, 'a, 'b, 'b, 'b), List('a, 'a, 'a), List('b, 'b, 'b, 'c, 'c, 'c),
+    assertSuccess(List(sym"a", sym"b"), List(sym"a"), List(sym"b", sym"c"), "a b c")
+    assertSuccess(List(sym"a", sym"a", sym"b", sym"b"), List(sym"a", sym"a"), List(sym"b", sym"b", sym"c", sym"c"), "a a b b c c")
+    assertSuccess(List(sym"a", sym"a", sym"a", sym"b", sym"b", sym"b"), List(sym"a", sym"a", sym"a"), List(sym"b", sym"b", sym"b", sym"c", sym"c", sym"c"),
       "a a a b b b c c c")
-    assertSuccess(List('a, 'a, 'a, 'a, 'b, 'b, 'b, 'b), List('a, 'a, 'a, 'a), List('b, 'b, 'b, 'b, 'c, 'c, 'c, 'c),
+    assertSuccess(List(sym"a", sym"a", sym"a", sym"a", sym"b", sym"b", sym"b", sym"b"), List(sym"a", sym"a", sym"a", sym"a"), List(sym"b", sym"b", sym"b", sym"b", sym"c", sym"c", sym"c", sym"c"),
       "a a a a b b b b c c c c")
 
     def assertFailure(expectedFailureMsg: String, input: String): Unit = {
